@@ -30,16 +30,18 @@ in torchbench, HuggingFace and TIMM.  These shape programs record the
 integer-level shape computations that were carried out during the execution of
 these models.  In particular, all operators are erased from these shape
 programs; a shape program only consists of simple arithmetic operations like
-add and multiply.  The symbolic shapes project at PyTorch has done the hard
+add and multiply, as well as assertions on shapes corresponding to
+asserts and conditional branches on shape values in the original PyTorch
+model.  The symbolic shapes project at PyTorch has done the hard
 work of writing the shape rules for its operators!
 
 There are some limitations to this dataset.  Most notably, the dataset is rank
 specialized: we assume that inputs have a fixed dimensionality and thus there
 is no reasoning about potentially arbitrarily sized lists of integers.  The
 dataset was also collected by "tracing" real world Python code; consequently,
-the shape programs are messy and contain asserts for every point in which
-the control flow of the traced program depended on a boolean value computed
-from the symbolic sizes.
+the shape programs are messy; for example, the recorded asserts cover not only
+user programmed asserts, but also all of the input checking the framework
+performed for every operator call.
 
 Some open questions from this dataset, which are of particular interest to
 us as framework implementors:
