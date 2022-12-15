@@ -23,7 +23,7 @@ learning framework like TensorFlow or PyTorch.  Making matters worse, one also
 has to build out shape rules for the hundreds of operations these frameworks
 support.
 
-The SMT-LIB-benchmarks-pytorch-shapes offers a way to evaluate the core
+SMT-LIB-benchmarks-pytorch-shapes offers a way to evaluate the core
 of a shape type system, without all the work of integrating with a framework.
 This dataset consists of a collection of shape programs for benchmark models
 in torchbench, HuggingFace and TIMM.  These shape programs record the
