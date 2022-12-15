@@ -1,0 +1,8 @@
+(set-option :produce-models true)
+(define-fun output0_size0 () Int 256)
+(define-fun output0_size1 () Int 1024)
+(define-fun output0_stride0 () Int 1024)
+(define-fun output0_stride1 () Int 1)
+(define-fun output0_storage_offset () Int 0)
+(check-sat)
+(get-model)
